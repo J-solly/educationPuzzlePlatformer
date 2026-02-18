@@ -45,7 +45,6 @@ class gameAttempt(arcade.Window):
         self.wall_list.append(ground)
 
         #gravity/physics engine
-
         self.physics_engine = arcade.PhysicsEnginePlatformer(
             self.player, self.wall_list, gravity_constant=GRAVITY
         )
