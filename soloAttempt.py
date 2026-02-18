@@ -4,7 +4,7 @@ SCREEN_WIDTH = 1250
 SCREEN_HEIGHT = 750
 SCREEN_TITLE = "my solo attempt"
 
-PLAYER_SPEED = 5
+PLAYER_SPEED = 7
 JUMP_SPEED = 25
 GRAVITY = 1
 
@@ -49,6 +49,17 @@ class gameAttempt(arcade.Window):
         self.physics_engine = arcade.PhysicsEnginePlatformer(
             self.player, self.wall_list, gravity_constant=GRAVITY
         )
+
+        #platforms
+        for x in range(300, SCREEN_WIDTH - 300, 300):
+            platform_texture = arcade.make_soft_square_texture(SCREEN_WIDTH, arcade.color.ASH_GREY, outer_alpha=255)
+            platform = arcade.Sprite()
+            platform.texture = platform_texture
+            platform.width = 150
+            platform.height = 20
+            platform.center_x = x
+            platform.center_y = 250
+            self.wall_list.append(platform)
 
     def on_draw(self):
         self.clear()
